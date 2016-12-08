@@ -1,20 +1,19 @@
- ______   _______ ______ 
-|  ____/\|__   __|  ____|
-| |__ /  \  | |  | |__   
-|  __/ /\ \ | |  |  __|  
-| | / ____ \| |  | |____ 
-|_|/_/    \_\_|  |______|
+     ______   _______ ______ 
+    |  ____/\|__   __|  ____|
+    | |__ /  \  | |  | |__   
+    |  __/ /\ \ | |  |  __|  
+    | | / ____ \| |  | |____ 
+    |_|/_/    \_\_|  |______|
                          
                          
- __  __            _        _         _                
-|  \/  |          | |      | |       | |               
-| \  / | __ _ _ __| | _____| |_ _ __ | | __ _  ___ ___ 
-| |\/| |/ _` | '__| |/ / _ \ __| '_ \| |/ _` |/ __/ _ \
-| |  | | (_| | |  |   <  __/ |_| |_) | | (_| | (_|  __/
-|_|  |_|\__,_|_|  |_|\_\___|\__| .__/|_|\__,_|\___\___|
-                               | |                     
-                               |_|                     
-
+     __  __            _        _         _                
+    |  \/  |          | |      | |       | |               
+    | \  / | __ _ _ __| | _____| |_ _ __ | | __ _  ___ ___ 
+    | |\/| |/ _` | '__| |/ / _ \ __| '_ \| |/ _` |/ __/ _ \
+    | |  | | (_| | |  |   <  __/ |_| |_) | | (_| | (_|  __/
+    |_|  |_|\__,_|_|  |_|\_\___|\__| .__/|_|\__,_|\___\___|
+                                   | |                     
+                                   |_|                     
 
 This is a dual purpose application - a project to help me work on my MEAN stack development and an attempt to satisfy what I see as a need in the FATE Tabletop RPG space.
 
@@ -38,6 +37,8 @@ It is my vision that everything can be cloned, not just the basic resources, but
 
 ## Running It On Dev
 
+Make sure you have mongo installed and the process is running (already taken care of if you are running this on my C9)
+
 1) install grunt-cli `npm install -g grunt-cli` to run the grunt watch and build tasks
 
 2) install nodemon `npm install -g grunt-cli` to run the server and monitor it for changes
@@ -46,17 +47,9 @@ It is my vision that everything can be cloned, not just the basic resources, but
 
 4) run `bower install`
 
-5) run `grunt watch`
-
 6) start `mongod`  or  `mongod --smallfiles` if you are on Cloud9 and space is tight
 
 7) start the server `nodemon server.js`
 
+8) `grunt watch` will create a *dev* directory in views, which the server.js is currently pointing to to run the application
 
-5) `grunt watch` will create a *dev* directory in views, which the server.js is currently pointing to to run the application
-
-2) Alternatively you can launch the app from the Terminal:
-
-    $ node server.js
-
-Once the server is running, open the project in the shape of 'https://projectname-username.c9.io/'. As you enter your name, watch the Users list (on the left) update. Once you press Enter or Send, the message is shared with all connected clients.
