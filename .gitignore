@@ -4,7 +4,7 @@
 node_modules
 bower_components
 
-views/src/public
-views/src/dev
+views/public
+views/dev
 views/vendor
 views/bower_components
