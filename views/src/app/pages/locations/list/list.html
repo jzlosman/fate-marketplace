@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-sm-6 col-xs-12 col-md-4 col-lg-3" ng-repeat="location in vm.locations">
+    <div ba-panel ba-panel-class="light-text text-center">
+      <img class='img-responsive' ng-src="{{location.cover}}"></img>
+      <h3 style='margin-top:12px;'>{{location.name}} <small ng-click='vm.goToEdit(location._id)'><i class='fa fa-edit'></i></small></h3>
+      <p ng-if='location.aspects.length > 0'><span class='badge badge-success' ng-repeat='aspect in location.aspects'>{{aspect}}</span></p>
+      <p class='text-muted'>{{location.intro}}</p>
+    </div>
+  </div>

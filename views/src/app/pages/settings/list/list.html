@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-sm-6 col-xs-12 col-md-4 col-lg-3" ng-repeat="setting in vm.settings">
+    <div ba-panel ba-panel-class="light-text text-center">
+      <img class='img-responsive' ng-src="{{setting.cover}}"></img>
+      <h3 style='margin-top:12px;'>{{setting.name}} <small ng-click='vm.goToEdit(setting._id)'><i class='fa fa-edit'></i></small></h3>
+      <p class='text-muted'>{{setting.description}}</p>
+    </div>
+  </div>

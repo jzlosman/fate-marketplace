@@ -1,0 +1,62 @@
+<div class="widgets"  flow-init>
+  <div class="row">
+    <div class="col-md-8">
+        <form class="form-horizontal" ng-submit='vm.create()'>
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control input-lg" id="name" placeholder="Harry Dresden" ng-model='vm.character.name'>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="high-concept" class="col-sm-2 control-label">High Concept</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="high-concept" placeholder="A wizarding private-eye" ng-model='vm.character.aspects.high_concept'>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="trouble" class="col-sm-2 control-label">Trouble</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="trouble" placeholder="A sucker for a damsel in distress" ng-model='vm.character.aspects.trouble'>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="aspects" class="col-sm-2 control-label">Other Aspects</label>
+            <div class="col-sm-10">
+              <input id='aspects' type="text" tag-input="primary" data-role="tagsinput" placeholder="Add Aspect" ng-model='vm.character.aspects.others'>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+              <textarea placeholder="15 years ago, on a cold day in September, in the heart of Chicago..." class="form-control" id="description" ng-model='vm.character.description'></textarea>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="image" class="col-sm-2 control-label">Image</label>
+            <div class="col-sm-10">
+                <div class="input-group">
+                  <span class="btn btn-default" flow-btn flow-file-added="vm.prepareImage($file, event, $flow)">Browse your computer...</span>
+                </div>
+            </div>
+          </div>
+            
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-warning">Create</button>
+            </div>
+          </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <div ng-show='vm.character.image'>
+            <img ng-if='vm.character.image && $flow.files.length == 0' ng-src='{{vm.character.image}}' class='img-responsive' />
+            <img ng-if='$flow.files.length > 0' flow-img='$flow.files[0]' class='img-responsive' />
+            <br/>
+            <small>image preview</small>    
+        </div>
+    </div>
+</div>
+    

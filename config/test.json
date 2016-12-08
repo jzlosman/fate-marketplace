@@ -1,0 +1,7 @@
+{
+    "DBHost": "mongodb://localhost:27017/onemeanrpg",
+    "login": {
+        "username": "jzlosman",
+        "password": "Arb02748+"
+    }
+}

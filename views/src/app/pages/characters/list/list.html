@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-sm-6 col-xs-12 col-md-3 col-lg-2" ng-repeat="character in vm.characters">
+    <div ba-panel ba-panel-class="light-text text-center">
+      <img class='img-responsive' ng-src="{{character.image}}"></img>
+      <h3 style='margin-top:12px;'>{{character.name}} <small ng-click='vm.goToEdit(character._id)'><i class='fa fa-edit'></i></small></h3>
+      <p><strong>{{character.aspects.high_concept}}</strong></p>
+      <p class='text-muted'>{{character.aspects.trouble}}</p>
+    </div>
+  </div>

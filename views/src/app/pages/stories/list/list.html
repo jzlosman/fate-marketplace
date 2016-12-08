@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-6 col-xs-12 col-md-4 col-lg-3" ng-repeat="story in vm.stories">
+    <div ba-panel ba-panel-class="light-text text-center">
+      <h3 style='margin-top:12px;'>{{story.name}} <small ng-if='story.isOwner(vm.userId)'><span class='text-success ion-checkmark-circled' ng-style="{color: story.owner.color}" title='This is your story'></span> <i class='fa fa-edit'ng-click='vm.goToEdit(location._id)'></i></small></h3>
+      <p>{{story.description}}</p>
+      <p>
+        <span class='badge badge-success'><span class='ion-earth'></span> {{story.setting.name}}</span>
+        <span class='badge badge-info'><span class='ion-person-stalker'></span> {{story.players.length}}</span>
+      </p>
+      <div class="panel-footer" ng-click='vm.play(story._id)'>
+        <button ng-if='story.isOwner(vm.userId)' class='btn btn-success btn-raised'>Play</button>
+        <button ng-if='!story.isOwner(vm.userId)' class='btn btn-success btn-raised'>Clone & Play</button>
+      </div>
+    </div>
+  </div>

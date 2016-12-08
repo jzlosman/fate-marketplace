@@ -1,0 +1,57 @@
+<div class="widgets"   flow-init>
+  <div class="row">
+    <div class="col-md-8">
+        <form class="form-horizontal" ng-submit='vm.save()'>
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control input-lg" id="name" placeholder="Harry's Apartment" ng-model='vm.location.name'>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="aspects" class="col-sm-2 control-label">Aspects</label>
+            <div class="col-sm-10">
+              <input id='aspects' type="text" tag-input="primary" ng-value="vm.aspects" data-role="tagsinput" placeholder="Add Aspect" ng-model='vm.location.aspects'>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="intro" class="col-sm-2 control-label">Intro (140 characters)</label>
+            <div class="col-sm-10">
+              <textarea placeholder="A brief overview of the location and why it is important." class="form-control" id="intro" ng-model='vm.location.intro'></textarea>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+              <textarea placeholder="Give some details about your location...." class="form-control" id="description" ng-model='vm.location.description'></textarea>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="image" class="col-sm-2 control-label">Image</label>
+            <div class="col-sm-10">
+                <div class="input-group">
+                  <span class="btn btn-default" flow-btn flow-file-added="vm.prepareImage($file, event, $flow)">Browse your computer...</span>
+                </div>
+            </div>
+          </div>
+            
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-warning">{{vm.form.label}}</button>
+            </div>
+          </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <img ng-if='vm.location.cover && $flow.files.length == 0' ng-src='{{vm.location.cover}}' class='img-responsive' />
+            <img ng-if='$flow.files.length > 0' flow-img='$flow.files[0]' class='img-responsive' />
+            <br/>
+            <small>image preview</small>    
+        </div>
+    </div>
+</div>
+    

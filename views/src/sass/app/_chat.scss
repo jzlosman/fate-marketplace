@@ -1,0 +1,368 @@
+
+#live-chat {
+	bottom: 0;
+	font-size: 12px;
+	right: 24px;
+	position: fixed;
+	width: 400px;
+}
+
+#live-chat header {
+	background: #293239;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	cursor: pointer;
+	padding: 16px 24px;
+}
+
+#live-chat h4:before {
+	background: #1a8a34;
+	border-radius: 50%;
+	content: "";
+	display: inline-block;
+	height: 8px;
+	margin: 0 8px 0 0;
+	width: 8px;
+}
+
+#live-chat h4 {
+	font-size: 12px;
+}
+
+#live-chat h5 {
+	font-size: 10px;
+}
+
+#live-chat form {
+	padding: 12px;
+	text-align: center;
+	
+}
+
+#live-chat input[type="text"] {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 8px;
+	outline: none;
+	width: 95%;
+}
+
+.chat-message-counter {
+	background: #e62727;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	display: none;
+	font-size: 12px;
+	font-weight: bold;
+	height: 28px;
+	left: 0;
+	line-height: 28px;
+	margin: -15px 0 0 -15px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 28px;
+}
+
+.chat-close {
+	background: #1b2126;
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	float: right;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
+	margin: 2px 0 0 0;
+	text-align: center;
+	width: 16px;
+}
+
+.chat {
+	background: #fff;
+}
+
+.chat-history {
+	height: 362px;
+	padding: 8px 24px;
+	overflow-y: scroll;
+}
+
+.chat-message {
+    &.me {
+        img {
+        	border-radius: 50%;
+        	float: right;
+        }
+        
+        .chat-message-content {
+        	margin-right: 56px;
+        }
+    }
+    &.them {
+        img {
+        	border-radius: 50%;
+        	float: left;
+        }
+        
+        .chat-message-content {
+        	margin-left: 56px;
+        }
+    }
+	margin: 16px 0;
+}
+
+
+
+
+.chat-time {
+	float: right;
+	font-size: 10px;
+}
+
+.chat-feedback {
+	font-style: italic;	
+	margin: 0 0 0 80px;
+}
+
+
+$blue: #2196F3;
+$dingy: #495B6A;
+$white: #ffffff;
+$purple: #673AB7;
+$yellow: #FFEB3B;
+$red: #F44336;
+$orange: #FF5722;
+$black: #333333;
+
+$nav: 100;
+
+$navHeight: 64px;
+
+$trans: 0.3s ease;
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+    width:100%;
+    height:100%;
+  overflow: hidden;
+  background-color: white;
+  
+  .inner {
+    overflow: scroll;
+    height: 100%;
+    background: darken($white, 5%);
+    
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    //gotta hide windows scrollbars
+    
+    &::-webkit-scrollbar {
+      width: 0 !important
+    }
+    
+    .content {
+      padding: ($navHeight - ($navHeight/1.5)) / 2;
+      position: relative;
+      margin-bottom: $navHeight/2;
+    }
+  }
+  
+  transition: $trans;
+}
+
+.nav {
+  height: $navHeight;
+  
+  .default-nav {
+    height: $navHeight;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: $nav + 10;
+
+    background-color: $red;
+    border-bottom: 3px solid darken($red, 10%);;
+    color: $white;
+
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+
+    .main-nav {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: $navHeight;
+      top: 0;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+      transition: $trans;
+    }
+
+    transition: $trans;
+  }
+  
+  transition: $trans;
+}
+
+.bottom {
+  
+  height: $navHeight;
+  background: $white;
+  position: relative;
+  
+  /* box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.1); */
+  
+  .input {
+    height: $navHeight;
+    background: $white;
+    border: none;
+    width: calc(100% - #{$navHeight});
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 5%;
+    resize: none;
+    overflow: scroll;
+    padding-top: ($navHeight/2) - 8;
+    font-weight: 300;
+    
+    &:focus {
+      outline: none;
+    }
+  
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    //gotta hide windows scrollbars
+    
+    &::-webkit-scrollbar {
+      width: 0 !important
+    }
+  }
+
+  .send {
+    position: absolute;
+    height: $navHeight/1.5;
+    width: $navHeight/1.5;
+    border-radius: 50%;
+    border: 0;
+    background: $red;
+    color: $white;
+    
+    bottom: ($navHeight - ($navHeight/1.5)) / 2;
+    right: ($navHeight - ($navHeight/1.5)) / 2;
+    
+    &:before {
+      content: '';
+      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png) no-repeat center center;
+    background-size: $navHeight/2.5;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    
+    &:focus {
+      outline: none;
+    }
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.message-wrapper {
+  position: relative;
+  overflow: hidden;
+  
+  width: 100%;
+  margin: (($navHeight - ($navHeight/1.5)) / 2) 0;
+  padding: (($navHeight - ($navHeight/1.5)) / 2) 0;
+  
+  .circle-wrapper {
+    height: $navHeight/1.5;
+    width: $navHeight/1.5;
+    border-radius: 50%;
+  }
+  
+  .text-wrapper {
+    padding: ($navHeight - ($navHeight/1.5)) / 2;
+    min-height: $navHeight/1.5;
+    width: 60%;
+    margin: 0 ($navHeight - ($navHeight/1.5)) / 2;
+    box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);
+    border-radius: 2px;
+    font-weight: 300;
+    position: relative;
+    /* word-break: break-all; */
+    opacity: 0;
+    
+    &:before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  }
+  
+  &.them {
+    .circle-wrapper, .text-wrapper {
+      background: $red;
+      float: left;
+      color: $white;
+    }
+    
+    .text-wrapper {
+      &:before {
+        border-width: 0 10px 10px 0;
+        border-color: transparent $red transparent transparent;
+        position: absolute;
+        top: 0;
+        left: -9px;
+      }
+    }
+  }
+  
+  &.me {
+    .circle-wrapper, .text-wrapper {
+      background: $orange;
+      float: right;
+      color: $black;
+    }
+    
+    .text-wrapper {
+      background: $white;
+      
+      &:before {
+        border-width: 10px 10px 0 0;
+        border-color: $white transparent transparent transparent;
+        position: absolute;
+        top: 0;
+        right: -9px;
+      }
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    
+    .inner {
+      height: 100%;
+      height: 100vh;
+    }
+  }
+}

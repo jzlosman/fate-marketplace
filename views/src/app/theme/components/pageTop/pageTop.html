@@ -1,0 +1,35 @@
+<div class="page-top clearfix" scroll-position="scrolled" max-height="50" ng-class="{'scrolled': scrolled}">
+  <div class="user-register-login-actions clearfix" ng-if='!profile.username'>
+    <a ui-sref='login'>
+        Login
+      </a>
+      
+      |
+      
+      <a ui-sref='register'>
+        Register
+      </a>
+  </div>
+  
+  <a href="#/dashboard" class="al-logo clearfix"><span>FATE</span>Marketplace</a>
+  <a href class="collapse-menu-link ion-navicon" ba-sidebar-toggle-menu></a>
+
+  <div class="search">
+    <i class="ion-ios-search-strong" ng-click="startSearch()"></i>
+    <input id="searchInput" type="text" placeholder="Search for...">
+  </div>
+  <div class="user-profile clearfix" ng-if='profile.username'>
+    <div class="al-user-profile" uib-dropdown>
+      <a uib-dropdown-toggle class="profile-toggle-link">
+        <img ng-src="{{profile | profilePicture}}">
+      </a>
+      <ul  class="top-dropdown-menu profile-dropdown" uib-dropdown-menu>
+        <li><i class="dropdown-arr"></i></li>
+        <li><a href="#/profile"><i class="fa fa-user"></i>{{profile.username}}</a></li>
+        <li><a href><i class="fa fa-cog"></i>Settings</a></li>
+        <li ng-click='logout()'><a href class="signout"><i class="fa fa-power-off"></i>Sign out</a></li>
+      </ul>
+    </div>
+    <msg-center></msg-center>
+  </div>
+</div>
